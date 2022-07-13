@@ -6,9 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breadcrumbs</title>
-    <script>
-        let module = {}
-    </script>
     <script src="./sql-wasm.js"></script>
     <script type="module">
         const sqlPromise = initSqlJs({
@@ -30,7 +27,7 @@
         let status = ["done", "open", "open", "open"]
 
         export function getNext(level) {
-            let el = document.querySelector("#level" + level)
+            let el = document.querySelector("#level" + level).querySelector(".content")
             if (status[level] == "close") {
                 status[level] = "open"
                 let row = stmts[level].getAsObject();
@@ -39,6 +36,9 @@
                     title += `<i> *${row['Description']}</i>`
                 }
                 el.innerHTML = `<h2>${title}</h2><div>Question: ${row['Question']}</div><div>Category: ${row['Category']}</div>`;
+
+                let history = document.querySelector("#history")
+                history.innerHTML = `<p>${row['Question']} (${row['Category']})</p>` + history.innerHTML;
             } else if (status[level] == "open") {
                 status[level] = "close"
                 if (!stmts[level].step()) {
@@ -58,17 +58,54 @@
         getNext(3)
         window.getNext = getNext
     </script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .card {
+            padding: 20px;
+            width: 33%;
+            min-height: 200px;
+            margin: 20px;
+            border: 1px solid red;
+        }
+
+        @media screen and (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <h1>Smoltok Breadcrumbs</h1>
+<body style="padding: 20px;">
+    <h1 style="margin: auto;">Smoltok Breadcrumbs</h1>
+    <p>Instructions: Sit in a circle. In each turn, click on any cards to reveal the question. Answer it and click again
+        on the question to close it. If you would like to start again, refresh the page.</p>
+    <div class="container">
+        <div id="level1" class="card" onclick="getNext(1)">
+            <h3>1</h3>
+            <div class="content"></div>
+        </div>
+        <div id="level2" class="card" onclick="getNext(2)">
+            <h3>2</h3>
+            <div class="content"></div>
+        </div>
+        <div id="level3" class="card" onclick="getNext(3)">
+            <h3>3</h3>
+            <div class="content"></div>
+        </div>
+    </div>
+    <h3>History</h3>
+    <div id="history"></div>
 
-    <h1>Level 1</h1>
-    <div id="level1" onclick="getNext(1)"></div>
-    <h1>Level 2</h1>
-    <div id="level2" onclick="getNext(2)"></div>
-    <h1>Level 3</h1>
-    <div id="level3" onclick="getNext(3)"></div>
 </body>
 
 </html>
