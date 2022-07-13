@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WNRS Quarantine Edition</title>
+    <script src="./sql-wasm.js"></script>
+    <script type="module">
+        let currentLvl = 0;
+        let categories = ["", "Perception", "Connection", "Reflection", "END"];
+
+        const sqlPromise = initSqlJs({
+            locateFile: file => `./${file}`
+        });
+        const dataPromise = fetch("data.db").then(res => res.arrayBuffer());
+        const [SQL, buf] = await Promise.all([sqlPromise, dataPromise])
+        const db = new SQL.Database(new Uint8Array(buf));
+
+        function getLevel(level) {
+            let stmt = db.prepare("SELECT * FROM wnrs_quarantine WHERE level = $level ORDER BY RANDOM()");
+            stmt.bind({
+                $level: level
+            });
+            return stmt
+        }
+
+        let stmt;
+
+        function nextStage() {
+            if (currentLvl == categories.length - 1) {
+                return
+            }
+            currentLvl += 1;
+            stmt = getLevel(currentLvl);
+            document.querySelector("#card").querySelector(".title").innerHTML = categories[currentLvl]
+            if (currentLvl < categories.length - 1) {
+                document.querySelector("#next").innerHTML = `Next stage: ${categories[currentLvl + 1]}`;
+            } else {
+                delete document.querySelector("#next").onclick;
+            }
+            getNext()
+        }
+
+        function getNext() {
+            let el = document.querySelector("#card").querySelector(".content")
+            if (stmt.step()) {
+                let row = stmt.getAsObject();
+                el.innerHTML = `<h2>${row['question']}</h2>`;
+                if (row['is_wildcard']) {
+                    el.style.backgroundColor = "yellow";
+                } else {
+                    el.style.backgroundColor = "white";
+                }
+                let history = document.querySelector("#history")
+                history.innerHTML = `<p>${row['question']} (${categories[currentLvl]}${row['is_wildcard'] ? "*" : ""})</p>` + history.innerHTML;
+            } else {
+                // go to next stage
+                nextStage();
+            }
+        }
+        nextStage()
+        window.nextStage = nextStage
+        window.getNext = getNext
+    </script>
+</head>
+
+<body style="padding: 20px;">
+    <h1 style="margin: auto;">We're Not Really Strangers - Quarantine Edition</h1>
+    <p>Instructions: There are 3 stages: perception, connection, reflection. You can go to the next stage anytime you
+        like. If you would like to go back to a previous
+        stage, refresh the page.</p>
+    <div class="container">
+        <div id="card" class="card" onclick="getNext()">
+            <h3 class="title"></h3>
+            <div class="content"></div>
+        </div>
+        <button id="next" onclick="nextStage()"></button>
+        <button onclick="getNext()">Next question</button>
+    </div>
+    <h3>History</h3>
+    <div id="history"></div>
+
+</body>
+
+</html>

@@ -16,7 +16,7 @@
         const db = new SQL.Database(new Uint8Array(buf));
 
         function getLevel(level) {
-            let stmt = db.prepare("SELECT * FROM smoltok_breadcrumbs WHERE difficulty = $level ORDER BY RANDOM()");
+            let stmt = db.prepare("SELECT * FROM smoltok_breadcrumbs WHERE level = $level ORDER BY RANDOM()");
             stmt.bind({
                 $level: level
             });
@@ -31,21 +31,21 @@
             if (status[level] == "close") {
                 status[level] = "open"
                 let row = stmts[level].getAsObject();
-                let title = row['Title']
-                if (row['Description']) {
-                    title += `<i> *${row['Description']}</i>`
+                let title = row['title']
+                if (row['description']) {
+                    title += `<i> *${row['description']}</i>`
                 }
-                el.innerHTML = `<h2>${title}</h2><div>Question: ${row['Question']}</div><div>Category: ${row['Category']}</div>`;
+                el.innerHTML = `<h2>${title}</h2><div>Question: ${row['question']}</div><div>Category: ${row['category']}</div>`;
 
                 let history = document.querySelector("#history")
-                history.innerHTML = `<p>${row['Question']} (${row['Category']})</p>` + history.innerHTML;
+                history.innerHTML = `<p>${row['question']} (${row['category']})</p>` + history.innerHTML;
             } else if (status[level] == "open") {
                 status[level] = "close"
                 if (!stmts[level].step()) {
                     status[level] = "done"
                 }
                 let row = stmts[level].getAsObject();
-                el.innerHTML = `<h2>***</h2><div>Question: ??</div><div>Category: ${row['Category']}</div>`;
+                el.innerHTML = `<h2>***</h2><div>Question: ??</div><div>Category: ${row['category']}</div>`;
             }
 
             if (status[level] == "done") {
@@ -71,6 +71,8 @@
             min-height: 200px;
             margin: 20px;
             border: 1px solid red;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
         }
 
         @media screen and (max-width: 768px) {
