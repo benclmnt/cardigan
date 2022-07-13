@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breadcrumbs</title>
+    <script>
+        let module = {}
+    </script>
+    <script src="./sql-wasm.js"></script>
+    <script type="module">
+        const sqlPromise = initSqlJs({
+            locateFile: file => `./${file}`
+        });
+        const dataPromise = fetch("data.db").then(res => res.arrayBuffer());
+        const [SQL, buf] = await Promise.all([sqlPromise, dataPromise])
+        const db = new SQL.Database(new Uint8Array(buf));
+
+        function getLevel(level) {
+            let stmt = db.prepare("SELECT * FROM smoltok_breadcrumbs WHERE difficulty = $level ORDER BY RANDOM()");
+            stmt.bind({
+                $level: level
+            });
+            return stmt
+        }
+
+        let stmts = ["", getLevel(1), getLevel(2), getLevel(3)]
+        let status = ["done", "open", "open", "open"]
+
+        export function getNext(level) {
+            let el = document.querySelector("#level" + level)
+            if (status[level] == "close") {
+                status[level] = "open"
+                let row = stmts[level].getAsObject();
+                let title = row['Title']
+                if (row['Description']) {
+                    title += `<i> *${row['Description']}</i>`
+                }
+                el.innerHTML = `<h2>${title}</h2><div>Question: ${row['Question']}</div><div>Category: ${row['Category']}</div>`;
+            } else if (status[level] == "open") {
+                status[level] = "close"
+                if (!stmts[level].step()) {
+                    status[level] = "done"
+                }
+                let row = stmts[level].getAsObject();
+                el.innerHTML = `<h2>***</h2><div>Question: ??</div><div>Category: ${row['Category']}</div>`;
+            }
+
+            if (status[level] == "done") {
+                el.innerHTML = `No more questions...`;
+                return
+            }
+        }
+        getNext(1)
+        getNext(2)
+        getNext(3)
+        window.getNext = getNext
+    </script>
+</head>
+
+<body>
+    <h1>Smoltok Breadcrumbs</h1>
+
+    <h1>Level 1</h1>
+    <div id="level1" onclick="getNext(1)"></div>
+    <h1>Level 2</h1>
+    <div id="level2" onclick="getNext(2)"></div>
+    <h1>Level 3</h1>
+    <div id="level3" onclick="getNext(3)"></div>
+</body>
+
+</html>
