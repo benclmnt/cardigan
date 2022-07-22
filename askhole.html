@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askhole</title>
+    <script src="./sql-wasm.js"></script>
+    <script>
+        let closeness = 0
+        let withExtra = false
+
+        function setCloseness(e) {
+            closeness = e.target.value
+        }
+
+        function setExtra(e) {
+            withExtra = e.target.checked
+        }
+    </script>
+    <script type="module">
+        const sqlPromise = initSqlJs({
+            locateFile: file => `./${file}`
+        });
+        const dataPromise = fetch("data.db").then(res => res.arrayBuffer());
+        const [SQL, buf] = await Promise.all([sqlPromise, dataPromise])
+        const db = new SQL.Database(new Uint8Array(buf));
+
+        function getData() {
+            let stmt;
+            if (!withExtra) {
+                stmt = db.prepare("SELECT * FROM askhole WHERE category != 'extra' AND danger <= $closeness ORDER BY RANDOM()");
+            } else {
+                stmt = db.prepare("SELECT * FROM askhole WHERE danger <= $closeness ORDER BY RANDOM()");
+            }
+            stmt.bind({
+                $closeness: closeness,
+            });
+            return stmt
+        }
+
+        let stmt = getData();
+        function destroyControls() {
+            stmt = getData()
+            getNext()
+            document.querySelector(".card").onclick = getNext
+            document.querySelector("#controls").innerHTML = ""
+        }
+
+        function getNext() {
+            let el = document.querySelector(".card").querySelector(".content")
+            if (stmt.step()) {
+                let row = stmt.getAsObject();
+                el.innerHTML = `<h2>${row['question']}</h2>`;
+                let history = document.querySelector("#history")
+                history.innerHTML = `<p>${row['question']} (${row['category']})</p>` + history.innerHTML;
+            }
+        }
+
+        window.getNext = getNext
+        window.destroyControls = destroyControls
+    </script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .card {
+            padding: 20px;
+            width: 33%;
+            min-height: 100px;
+            margin: 20px;
+            border: 1px solid lightpink;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        }
+
+        @media screen and (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body style="padding: 20px;">
+    <h1 style="margin: auto;">Askh*le</h1>
+    <!-- Original: https://www.askhole.io/ -->
+    <h2 style="color: red;">Warning: This is no casual icebreaker deck — use with caution.</h2>
+    <p>Instructions: Sit in a circle. In each turn, click on the cards to reveal the question. Answer it and click again
+        to reveal a new question</p>
+    <div id="controls">
+        <h3>Controls: Please set before playing</h3>
+        <div>
+            <label for="closeness">Closeness</label>
+            <input type="range" id="closeness" name="closeness" min="0" max="2" value="0"
+                onchange="setCloseness(event)">
+        </div>
+        <div>
+            <label for="extra">Extra</label>
+            <input type="checkbox" name="extra" id="extra" onchange="setExtra(event)">
+        </div>
+        <button onclick="destroyControls()">Done</button>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="content"></div>
+        </div>
+    </div>
+    <h3>History</h3>
+    <div id="history"></div>
+
+</body>
+
+</html>

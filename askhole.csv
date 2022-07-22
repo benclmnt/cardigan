@@ -1,0 +1,226 @@
+id,question,category,danger
+1,"In what ways are you inhibited from expressing love?",personal,0
+2,"What difficult or painful experience would you recommend to everyone?",personal,0
+3,"What's the most intense emotional pain you've ever experienced?",personal,0
+4,"In what ways don't you trust yourself?",personal,0
+5,"How have you disappointed your parents?",personal,0
+6,"What about yourself have you been trying to fix for a long time?",personal,0
+7,"How would you raise a child differently from how your parents raised you?",personal,0
+8,"What was the last thing you cried about? When was it?",personal,0
+9,"What was the most difficult thing you've ever had to do?",personal,0
+10,"In what ways do you tend to fail at communication?",personal,0
+11,"What is currently your greatest insecurity?",personal,0
+12,"Which of your habits conflicts with your values?",personal,0
+13,"What aspect about the person to your left gives you the strongest negative feeling?",personal,0
+14,"What do you still owe someone an apology for?",personal,0
+15,"What's the most sick (mental or physical) you've ever been?",personal,0
+16,"Who do you hate most?",personal,0
+17,"What is your biggest obstacle toward peace?",personal,0
+18,"What about your appearance would you like to change?",personal,0
+19,"What have you done that you are most ashamed of?",personal,0
+20,"Are you afraid of death? Why or why not?",personal,0
+21,"How do you heal from painful experiences? How do you know when you're done healing?",personal,0
+22,"What was your biggest financial mistake?",personal,0
+23,"What's the most intense physical pain you've ever experienced?",personal,0
+24,"How often and in what ways does fear show up in you?",personal,0
+25,"Which have you planned in greater detail: killing yourself, or killing someone else?",personal,0
+26,"Who in this room would you most like to have sex with?",relationship,2
+27,"If everyone in the room were arranged on a spectrum of attractiveness, which two people would you be between?",relationship,0
+28,"What problems do you see in the relationships of those around you?",relationship,0
+29,"You have to marry someone in this room right now. Who is it?",relationship,1
+30,"Is there anything which arouses you that you've never admitted to anybody?",relationship,2
+31,"What unusual trait do you find most attractive in a romantic partner?",relationship,0
+32,"Out of all your past sexual experiences, what has made you the most uncomfortable?",relationship,2
+33,"If you were invited to an all-nude party, where all the participants are required to be naked the whole time, would you go?",relationship,1
+34,"When you introspect, away from society and your physical body, deep inside, do you feel a sense of gender?",relationship,1
+35,"What were the conditions of your last break-up?",relationship,0
+36,"If you had to choose one, would you rather double or halve your sex drive?",relationship,1
+37,"Would you rather fuck your girlfriend who is inhabiting your mother's body, or your mother who is inhabiting your girlfriend's body? (If you date men, switch it to boyfriend and father.)",relationship,2
+38,"In total, have you given or received more oral sex?",relationship,2
+39,"What's one of the most adventurous things you've ever done in bed?",relationship,2
+40,"Would you date yourself?",relationship,0
+41,"What percentage of your preferred age/gender demographic would you be down to have sex with after roughly an hour of flirting?",relationship,1
+42,"Have you ever been in an open or polyamorous relationship? If not, would you consider it?",relationship,2
+43,"Could you have a serious relationship with someone who expressed that they thought they were unworthy of the relationship?",relationship,0
+44,"Have you ever dated someone who you felt was below your standards?",relationship,0
+45,"How easy is it for you to orgasm?",relationship,2
+46,"Do you ever feel guilt or shame for romantically rejecting people who are interested in you?",relationship,0
+47,"If you could press a button and double the sex drive of all women on earth, would you do it?",relationship,2
+48,"If you tried, could you list the names of everyone you've had sex with?",relationship,2
+49,"Are yelling fights in relationships more typical and inevitable, or terrible and avoidable?",relationship,0
+50,"What was your most disappointing sexual experience?",relationship,2
+51,"What emotion/feeling are you currently suppressing or ignoring?",sad,0
+52,"Who in the room do you admire the most?",sad,0
+53,"Did your parents do a good job?",sad,0
+54,"What are the signs that someone understands you uniquely?",sad,0
+55,"What is the best advice you've received, and why did you need it?",sad,0
+56,"What are you waiting to hear from someone close to you?",sad,0
+57,"What do you most admire about the person to your right?",sad,0
+58,"At the gut level, do you feel that the world is safe or not safe?",sad,0
+59,"Would you rather increase the amount that people respect you, or increase the amount they desire you?",sad,0
+60,"What relatively common experience have you never had?",sad,0
+61,"Do you ever enjoy the experience of emotional pain?",sad,0
+62,"Have you been loved enough?",sad,0
+63,"Have you ever had (what you consider to be) a spiritual experience? If so, what was it like and what effects did it have on you?",sad,0
+64,"Do you feel a greater sense of satisfaction when you gain approval from people who are very similar to you, or very different from you?",sad,0
+65,"If you could have one but not the other, would you rather love someone or be loved by someone?",sad,0
+66,"What kind of people do you get along best with?",sad,0
+67,"Which of your achievements are you most proud of?",sad,0
+68,"Given the guarantee that nobody will ask you the question: What is a question that you would refuse to answer?",sad,0
+69,"How boring are you?",sad,0
+70,"Do you have more thoughts or more feelings?",sad,0
+71,"What are your coping mechanisms for stress?",sad,0
+72,"Would you rather double the amount of emotional pain and pleasure you feel on a daily basis, or cut both in half?",sad,0
+73,"What is the most interesting fact about you that few people know?",sad,0
+74,"Which of your personality traits are you most proud of?",sad,0
+75,"Which group is larger: people who trust you, or people you trust?",sad,0
+76,"What is the most significant thing you've ever changed your mind about?",thoughtful,0
+77,"If you could ask everybody in the world one question, what would it be? You don't get to hear their answers.",thoughtful,0
+78,"Are some human lives worth more than others?",thoughtful,0
+79,"You must pick a number right now and live that many years total, in good physical health. You can't die before, and you can't extend after. How many years do you choose to live?",thoughtful,0
+80,"Do you consider the state of 'unconditionally loving everyone' to be desirable or undesirable for you, given it were possible?",thoughtful,0
+81,"Are there any thoughts so offensive that you would advocate shaming those who think them, even if they don't act on those thoughts?",thoughtful,0
+82,"Which of your beliefs would be the most difficult to change, even in the face of overwhelming evidence?",thoughtful,0
+83,"Are there any cases in which you would support forced, involuntary brain modification to change someone else's mind, urges, or behavior?",thoughtful,0
+84,"You can make a designer baby. Would you rather optimize it primarily for intelligence or happiness/optimism?",thoughtful,0
+85,"What do you think enlightenment is?",thoughtful,0
+86,"Do you believe the set of concepts like 'duty', 'should', 'obligation', and 'deserving' are ultimately more valid or meaningless?",thoughtful,0
+87,"If you could press a button that would make you feel deeply and permanently that everything was ok, would you? Assume that you'd remain functional in the world.",thoughtful,0
+88,"Can someone both be a kind person and also hold the exact opposite of your political views?",thoughtful,0
+89,"If you could, would you wirehead (i.e. hook yourself up to a hypothetical machine that makes you totally and eternally happy and satisfied)?",thoughtful,0
+90,"If you (and only you) could see one measurement or statistic over everyone's heads, what would you want it to indicate?",thoughtful,0
+91,"Would you prefer to date someone 20 IQ points higher or 5 points lower than you?",thoughtful,0
+92,"If you could press a button that would instantly erase every single false belief you have, would you do it?",thoughtful,0
+93,"If you could ask the universe one question and get the truth, what would you want to know?",thoughtful,0
+94,"Is torture ever permissible?",thoughtful,0
+95,"On planet A, everyone's 30% dumber, and you're a genius by comparison. On planet B, everyone's 30% smarter, and you're an idiot by comparison. You stay the same. Which planet would you prefer to live on?",thoughtful,0
+96,"Which technology should not have been invented?",thoughtful,0
+97,"If you could magically cause a neutral nude photo of every human to be published publicly on the internet every year on their birthday, would you?",thoughtful,0
+98,"Of all the beliefs you hold, which is most likely to be considered barbaric in 150 years?",thoughtful,0
+99,"You see a friend getting into their third emotionally abusive relationship in a row. Are they a victim?",thoughtful,0
+100,"Do you feel that you have conscious control over your beliefs? Could you, right now, decide to believe something else if you tried? If so, which beliefs?",thoughtful,0
+101,"What's the most controversial opinion you hold among your own social group?",controversial,0
+102,"What viewpoint is the most difficult for you to empathize with?",controversial,0
+103,"Does 'no' always really mean 'no'?",controversial,0
+104,"If you had to fuck a cow, would you rather it be dead or alive?",controversial,0
+105,"Do you have any political or social opinions that you're afraid to express to your friends?",controversial,0
+106,"In your personal experience, even if the difference is extremely slight, are men or women better at handling suffering?",controversial,0
+107,"In a world where different ethnicities had strong genetic differences which caused different moral behavior, would racism be okay or still not okay?",controversial,0
+108,"What groups or communities are you most judged for being a member of?",controversial,0
+109,"In a world where prostitution becomes totally legal and regulated, should sex workers be allowed to refuse clients on the basis of race?",controversial,0
+110,"Would you rather have accidentally killed someone, or be a nonoffending pedophile?",controversial,0
+111,"Would you support the use of realistic child sex dolls by pedophiles?",controversial,0
+112,"Would you rather be raped or falsely (but convincingly) accused of rape?",controversial,0
+113,"Does modern western culture encourage women either to overreact or underreact to 'minor' sexual assaults, such as groping, too-drunk sex, etc.?",controversial,0
+114,"How do society's morals differ from your own?",controversial,0
+115,"Regardless of your conscious beliefs or actions, do you feel in your gut that sex work is degrading?",controversial,0
+116,"Which stereotype is actually pretty accurate?",controversial,0
+117,"If you had to eliminate one million people from one ethnicity, which would it be?",controversial,0
+118,"A 14-year-old has sex. How large does the age gap have to be between the 14-year-old and their partner before the child can no longer meaningfully consent to sex?",controversial,0
+119,"If a sex worker consents to sex with a customer under expectation of payment, but then the customer refuses to pay, is this closer to rape or to theft?",controversial,0
+120,"What's your opinion of education that teaches men to be more seductive?",controversial,0
+121,"Do women have any systemic privilege due to their gender?",controversial,0
+122,"Is incest wrong? Should it be illegal?",controversial,0
+123,"Are there any viewpoints so offensive that they deserve to be shut down or suppressed? If so, which ones?",controversial,0
+124,"Regardless of your support or personal feelings, does your subconscious view trans-identifying people as closer to their birth or current gender?",controversial,0
+125,"Is bestiality wrong? Are you a vegan?",controversial,0
+126,"To what do you attribute to your success?",extra,0
+127,"Have you named your genitals?",extra,2
+128,"Who is your alter ego?",extra,0
+129,"How do you predict you will die?",extra,0
+130,"How old do you feel?",extra,0
+131,"What's your greatest failure?",extra,0
+132,"What is the worst thing anyone has ever done to you?",extra,0
+133,"What are your most prized possessions?",extra,0
+134,"What's your boring superpower?",extra,0
+135,"A woman rapes a man and becomes pregnant. Would you support a law that gives the man the right to force termination of the pregnancy?",extra,0
+136,"Do you view 'social justice warriors' and 'the alt-right' as roughly equivalent in extremism, just on opposite sides?",extra,0
+137,"Are there any things on a dating profile that you agree with or also like, but find a turnoff that they listed it?",extra,0
+138,"How do you personally know when something is immoral?",extra,0
+139,"Have you ever dated someone who you felt was below your standards?",extra,0
+140,"If you had to name one thing you want that drives all your other wants, what would it be?",extra,0
+141,"What's a lie you wish you could stop telling yourself?",extra,0
+142,"Which is more accurate for you: I do things so that I can make money; or, I make money so that I can do things?",extra,0
+143,"What's the best thing someone could know about you that might help them?",extra,0
+144,"Would you rather be in the top 1% of wealth bracket in 1530, or the bottom 10% of wealth bracket in a modern-day town or city?",extra,0
+145,"You have a piece of art you really like hanging in your living room. One day you learn the artist has been convicted for rape. What do you do with the art piece?",extra,0
+146,"Would you rather lose the ability to sing or to swear?",extra,0
+147,"Would you rather drown a puppy or have everyone think you drowned a puppy?",extra,0
+148,"Can rape jokes ever be funny?",extra,0
+149,"Do you believe plants can feel pain?",extra,0
+150,"How susceptible are you to being brainwashed?",extra,0
+151,"How did your parents discipline you when you were a child?",extra,0
+152,"What was your greatest sacrifice?",extra,0
+153,"Would you press a button that doubled your IQ?",extra,0
+154,"Would you stomp a puppy to death to save a terminally ill child with < 6 months to live?",extra,0
+155,"Do you have someone you feel comfortable talking to about everything?",extra,0
+156,"If you had to name one thing you think others envy about you, what would it be?",extra,0
+157,"Is sex really about power?",extra,1
+158,"What's your relationship to buttplugs?",extra,2
+159,"Would you be willing to show your browsing history to everybody present? What if this didn't include porn?",extra,0
+160,"Would you date a prostitute?",extra,0
+161,"Would you rather change genders every time you sneeze, or be unable to tell the difference between babies and muffins?",extra,1
+162,"Would you rather lick someone else's butthole or your own butthole?",extra,2
+163,"Would you rather live a life where you are convinced you're doing good but really you're hurting the world, or a life where you're helping the world but you're convinced that you're failing to do so and actually hurting it?",extra,0
+164,"Would you rather your life be ended by yourself or others?",extra,0
+165,"Would you rather date a kind person with the exact opposite of your political views, or an unkind person who strongly agrees with your views?",extra,0
+166,"Assuming legality isn't an issue and all parties are informed and consenting, would you rather have sex with a 15 year old or a 50 year old?",extra,1
+167,"Do you have any enemies? If not, who is the closest to being your enemy?",extra,0
+168,"How do you know when someone is empathizing with you?",extra,0
+169,"If you woke up to an incredibly physically attractive stranger of your desired sex performing oral on you (without asking), would you feel positively or negatively?",extra,1
+170,"Should male circumcision be legal?",extra,0
+171,"You have the option of moving to one of two cities. In Omelas, 99% of people have 10/10 life quality, while the remaining 1% have 0/10 life quality. In Bergeron, everyone has 5/10 life quality. Which city do you move to?",extra,0
+172,"You're in a monogamous relationship. Your partner gets back late and says 'Honey, I just had sex with the new lifelike sex robot.' Is this cheating?",extra,1
+173,"A woman says she's on birth control, and she has sex with a man without a condom. But she was lying -- she was not on birth control. Is this rape?",extra,1
+174,"Are you more concerned with improving the world or improving yourself?",extra,0
+175,"Do you consider 'being at peace' to be the same thing as 'being happy'?",extra,0
+176,"Do you have any political or social opinions that you’re afraid to express out loud to your friends?",extra,0
+177,"Given the chance, would you fuck God given He won't judge you for it?",extra,1
+178,"Have you ever woke up from a dream, crying? What was the dream?",extra,0
+179,"Have you had enough sex this year?",extra,2
+180,"When was the last time you masturbated?",extra,2
+181,"Have you masturbated within the last week to someone you know personally, and also would feel uncomfortable telling them about it?",extra,2
+182,"How do you feel superior to other people?",extra,0
+183,"How do you treat yourself differently from the way you treat others?",extra,0
+184,"How much control do you feel you have over your own emotions?",extra,0
+185,"How often do you feel fear in your life",extra,0
+186,"How often do you feel pleased at others' misfortunes?",extra,0
+187,"If all sexism were magically and totally eliminated, would gender ratio of all jobs, ideologies, and communities reach 50/50?",extra,0
+188,"If there were a way to painlessly and permanently alter the thoughts of a person you know, who and what would you change?",extra,0
+189,"If you had a little teleportation portal, would you fuck yourself in the ass?",extra,2
+190,"If you press the button, America gets to elect the primary rulers for every other nation in the world and the rest of the world collectively elects America's next president. Do you press the button?",extra,0
+191,"If you press the button, you enter a magical, permanent state where everything you want is automatically granted right before the want hits your conscious awareness. Besides 'you can't enter a state of desire' or 'suicide,' there are no limits in fulfilling what you want. Do you press the button?",extra,0
+192,"Is it easier for you to love or hate?",extra,0
+193,"Is there any kind of job or employment position in which it should be legal for an employee to refuse to serve a customer based on gender?",extra,0
+194,"Is there anyone whose life you value above your own?",extra,0
+195,"List the people listening to you answer this question in the order they would die in the apocalypse",extra,0
+196,"On an instinctual level, do you think of humans as part of nature or separate from nature?",extra,0
+197,"Regardless of how much you personally approve, would you be comfortable having a serious relationship with an active pornstar?",extra,0
+198,"Should people be allowed to sell themselves into slavery, given they are not coerced into the decision, and given full information about what it entails?",extra,0
+199,"There is a button before you. If you press it, the entire world loses the enchantment it feels when looking at super beautiful faces. Everyone can still see and recognize faces, but all faces feel equally attractive. Would you press the button?",extra,0
+200,"What grudges do you hold?",extra,0
+201,"What in your experience does language fail to capture?",extra,0
+202,"What is the most insidious ideology surrounding you in life?",extra,0
+203,"What viscous cycles do you find yourself in?",extra,0
+204,"What was your darkest night?",extra,0
+205,"What was your worst habit in your worst relationship?",extra,0
+206,"What's died in you?",extra,0
+207,"When was the last time you felt fear?",extra,0
+208,"When you feel an emotion, how often does it involve a physical bodily sensation in addition to a mental state?",extra,0
+209,"Where do you find fulfillment in your life?",extra,0
+210,"Which life lessons that you've learned would be most important for the people in this room to hear?",extra,0
+211,"What is the greatest current existential threat to humanity?",extra,0
+212,"Which race, generally speaking, has experienced greater oppression -- blacks or jews?",extra,0
+213,"You find out your crush messages people more boring/ugly/dumb than you on dating sites. Does this reduce your attraction to them?",extra,0
+214,"You wake up in a body of the opposite sex. It takes years, but you eventually learn to operate in this body — how to navigate romantic/sexual dynamics and social expectations — about as well as people naturally born into this body. Do you predict you'd feel dysphoria?",extra,1
+215,"How often do you think about your own death?",extra,0
+216,"Have you ever had a plant that you really cared about?",extra,0
+217,"Who thinks you're dumb?",extra,0
+218,"'Women are oversexualized in media and this should be stopped.' Agree or disagree?",extra,0
+219,"In one room, a child is about to die. In the other room, a demon is about to increase unemployment in your country by 1% for 3 years. You can either save the child or kill the demon, but not both. Which do you choose?",extra,0
+220,"The button will turn your body to clay for 5 minutes so you can mold yourself. No undos or takebacks. Do you use the button?",extra,0
+221,"Do you ever enjoy not getting what you want?",extra,0
+222,"What's the most likely way that you might hurt those around you?",extra,0
+223,"When did you last do something for the first time? What was it?",extra,0
+224,"Would you rather be twice your size or half your size?",extra,0
+225,"Is it okay to become aroused by fantasies of actions that would result in serious harm if done in real life?",extra,0
