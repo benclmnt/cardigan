@@ -64,6 +64,33 @@
         window.nextStage = nextStage
         window.getNext = getNext
     </script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .card {
+            padding: 20px;
+            width: 33%;
+            min-height: 100px;
+            margin: 20px;
+            border: 1px solid lightpink;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        }
+
+        @media screen and (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body style="padding: 20px;">
@@ -71,14 +98,14 @@
     <p>Instructions: There are 3 stages: perception, connection, reflection. You can go to the next stage anytime you
         like. If you would like to go back to a previous
         stage, refresh the page.</p>
-    <div class="container">
+    <div class="container" onclick="getNext()">
         <div id="card" class="card" onclick="getNext()">
             <h3 class="title"></h3>
             <div class="content"></div>
         </div>
-        <button id="next" onclick="nextStage()"></button>
-        <button onclick="getNext()">Next question</button>
     </div>
+    <h3>When you're ready</h3>
+    <button id="next" onclick="nextStage()"></button>
     <h3>History</h3>
     <div id="history"></div>
 
