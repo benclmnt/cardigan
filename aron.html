@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Talk</title>
+    <script src="./sql-wasm.js"></script>
+    <script type="module">
+        let currentLvl = 0;
+        let categories = ["", 1, 2, 3];
+
+        const sqlPromise = initSqlJs({
+            locateFile: file => `./${file}`
+        });
+        const dataPromise = fetch("data.db").then(res => res.arrayBuffer());
+        const [SQL, buf] = await Promise.all([sqlPromise, dataPromise])
+        const db = new SQL.Database(new Uint8Array(buf));
+
+        function getLevel(level) {
+            let stmt = db.prepare("SELECT question FROM aron WHERE `set` = $level");
+            stmt.bind({
+                $level: level
+            });
+            return stmt
+        }
+
+        let stmt;
+
+        function nextStage() {
+            if (currentLvl == categories.length - 1) {
+                return
+            }
+            currentLvl += 1;
+            stmt = getLevel(currentLvl)
+            document.querySelector("#card").querySelector(".title").innerHTML = categories[currentLvl]
+            if (currentLvl < categories.length - 1) {
+                document.querySelector("#next").innerHTML = `Next stage: ${categories[currentLvl + 1]}`;
+            } else {
+                delete document.querySelector("#next").onclick;
+            }
+            getNext()
+        }
+
+        function getNext() {
+            let el = document.querySelector("#card").querySelector(".content")
+            if (stmt.step()) {
+                let row = stmt.getAsObject();
+                el.innerHTML = `<h2>${row['question']}</h2>`;
+                let history = document.querySelector("#history")
+                history.innerHTML = `<p>${row['question']} (${categories[currentLvl]})</p>` + history.innerHTML;
+            } else {
+                // go to next stage
+                nextStage();
+            }
+        }
+        nextStage()
+        window.nextStage = nextStage
+        window.getNext = getNext
+    </script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .card {
+            padding: 20px;
+            width: 33%;
+            min-height: 100px;
+            margin: 20px;
+            border: 1px solid lightpink;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        }
+
+        @media screen and (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body style="padding: 20px;">
+    <h1 style="margin: auto;">Arthur Aron</h1>
+    <p>Instructions: There are 3 sets: I, II, III. If you have limited time, time yourself and make sure each sets get
+        an equal amount of time.
+        Then go to the next stage. If you would like to go back to a previous stage, refresh the page.</p>
+    <div class="container">
+        <div id="card" class="card" onclick="getNext()">
+            <h3 class="title"></h3>
+            <div class="content"></div>
+        </div>
+    </div>
+    <h3>When you're ready</h3>
+    <button id="next" onclick="nextStage()"></button>
+    <h3>History</h3>
+    <div id="history"></div>
+
+</body>
+
+</html>
