@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WNRS Quarantine Edition</title>
+    <title>Let's Talk</title>
     <script src="./sql-wasm.js"></script>
     <script type="module">
         let currentLvl = 0;
-        let categories = ["", "Perception", "Connection", "Reflection", "END"];
+        let categories = ["", "Prologue", "Present", "Future", "Past"];
 
         const sqlPromise = initSqlJs({
             locateFile: file => `./${file}`
@@ -19,9 +19,9 @@
         const db = new SQL.Database(new Uint8Array(buf));
 
         function getLevel(level) {
-            let stmt = db.prepare("SELECT * FROM wnrs_quarantine WHERE level = $level ORDER BY RANDOM()");
+            let stmt = db.prepare("SELECT question FROM letstalk WHERE stage = $level ORDER BY RANDOM()");
             stmt.bind({
-                $level: level
+                $level: categories[level]
             });
             return stmt
         }
@@ -33,7 +33,7 @@
                 return
             }
             currentLvl += 1;
-            stmt = getLevel(currentLvl);
+            stmt = getLevel(currentLvl)
             document.querySelector("#card").querySelector(".title").innerHTML = categories[currentLvl]
             if (currentLvl < categories.length - 1) {
                 document.querySelector("#next").innerHTML = `Next stage: ${categories[currentLvl + 1]}`;
@@ -48,13 +48,8 @@
             if (stmt.step()) {
                 let row = stmt.getAsObject();
                 el.innerHTML = `<h2>${row['question']}</h2>`;
-                if (row['is_wildcard']) {
-                    el.style.backgroundColor = "yellow";
-                } else {
-                    el.style.backgroundColor = "white";
-                }
                 let history = document.querySelector("#history")
-                history.innerHTML = `<p>${row['question']} (${categories[currentLvl]}${row['is_wildcard'] ? "*" : ""})</p>` + history.innerHTML;
+                history.innerHTML = `<p>${row['question']} (${categories[currentLvl]})</p>` + history.innerHTML;
             } else {
                 // go to next stage
                 nextStage();
@@ -94,8 +89,8 @@
 </head>
 
 <body style="padding: 20px;">
-    <h1 style="margin: auto;">We're Not Really Strangers - Quarantine Edition</h1>
-    <p>Instructions: There are 3 stages: perception, connection, reflection. You can go to the next stage anytime you
+    <h1 style="margin: auto;">Let's Talk</h1>
+    <p>Instructions: There are 4 stages: prologue, present, future, past. You can go to the next stage anytime you
         like. If you would like to go back to a previous
         stage, refresh the page.</p>
     <div class="container">
