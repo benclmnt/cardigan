@@ -1,0 +1,61 @@
+index;title;question;category;depth
+1;Babe in Arms;Do you like kids?;Intimacy;1
+2;Face Value;What's the most you're willing to spend on a meal, an outfit, and a vacation?;Intimacy;1
+3;Grand Gestures;What's the craziest or silliest thing you've ever done for someone you love?;Intimacy;1
+4;Great Expectations;What do you pay special attention to on a first date?;Intimacy;1
+5;Hopeless Romantic;What has shaped your ideas about love and relationships?;Intimacy;1
+6;Different Strokes;What's your love language?;Intimacy;1
+7;No Screens Attached;What's your screen-time policy during dates?;Intimacy;1
+8;Pick the Tab;Who pays on dates?;Intimacy;1
+9;Tug of War;Which do you find yourself following most often: your head, heart or gut?;Intimacy;1
+10;Typecast;Do you have a type? Describe what your type is like;Intimacy;1
+11;#priorities;What do you imagine your wedding to be like? Which part is most/least important to you?;Intimacy;2
+12;Bad Romance;Recall a time when something romantic you said/did backfired?;Intimacy;2
+13;Boundaries;What does physical intimacy mean to you? What's appropriate to you at each stage of relationship?;Intimacy;2
+14;Dating Treadmill;What's your biggest challenge in searching for a partner today?;Intimacy;2
+15;Earning Power;How would you feel if your partner made more/less money than you?;Intimacy;2
+16;Humble Pie;When you make a mistake, how quickly do you 'fess up? How do you apologise?;Intimacy;2
+17;Modus Operandi;Where do you go to meet new people? Is it working for you?;Intimacy;2
+18;Nest Egg;What does being financially secure look like? How important is it that you and your partner are financially secure?;Intimacy;2
+19;Sound Advice;Who/what do you turn to for relationship advice?;Intimacy;2
+20;Unrequited;What was your most recent experience of being rejected? How do you deal with rejection?;Intimacy;2
+21;After Action Review;What did you learn/unlearn about yourself after your last relationship?;Intimacy;3
+22;Dating Decorum;What are your rules for dating?;Intimacy;3
+23;Ever After;What are your views and values about marriage and divorce?;Intimacy;3
+24;Marriage Material;What would make you consider someone as a potential husband/wife? What would immediately disqualify him/her?;Intimacy;3
+25;Pinky Promise;What does commitment look or sound like to you?;Intimacy;3
+26;Pushback;When did you last feel pressured or forced to do something you didn't want to do? How did you respond?;Intimacy;3
+27;Rules of Engagement;When do you think it's appropriate to: (1) meet your partner's friends, (2) meet the parents, (3) move in together?;Intimacy;3
+28;Unsolicited;What's the most/least helpful relationship advice you ever gave or got?;Intimacy;3
+29;Viewer Discretion Advised;How would you react if you discovered your partner was using pornography?;Intimacy;3
+30;Warning Signs;What do you consider to be a red flag in a relationship? What would you do about it if it occurs?;Intimacy;3
+31;Down the Aisle;What was going through your mind and heart on your wedding day?;Fidelity;1
+32;Force of Habit;Share about a habit you've abandoned or adopted since you got attached.;Fidelity;1
+33;Magic in the Mundane;What everyday activities do you enjoy doing together with your partner? What do you love about them?;Fidelity;1
+34;Peer Review;What do your close friends and family think about your partner?;Fidelity;1
+35;Pillow Talk;What do you and your partner talk about? What do you enjoy sharing with each other?;Fidelity;1
+36;Power Coupling;Describe a couple you admire. What is it about their relationship that's significant to you?;Fidelity;1
+37;Relationship Goals;As a couple, what goals do you and your partner want to work towards?;Fidelity;1
+38;ROFL;When was the last time your partner made you laugh so hard you couldn't stop? Is there enough laughter in your relationship?;Fidelity;1
+39;Sequel;Recount your first date together. What made you say yes to a second date?;Fidelity;1
+40;Sound Barrier;How did you react the first time your partner farted in front of you?;Fidelity;1
+41;Alone Time;How comfortable are you with your partner doing things without you?;Fidelity;2
+42;Bedrock;What values define your relationship as a couple?;Fidelity;2
+43;Cold Pricklies;Recall an incident over the past week when you felt ignored or unloved by your partner. How did you respond?;Fidelity;2
+44;Conflict Resolution;Recount your last big argument with your partner. Have you resolved it and reconciled?;Fidelity;2
+45;In-Laws;How do you interact with each other's parents?;Fidelity;2
+46;Moonshot;What do you think your partner's aspirations are? How can you support him/her in achieving them?;Fidelity;2
+47;Shape of You;How would you react if your partner gains/loses a lot of weight? Why would you react in that way?;Fidelity;2
+48;Trust Fall;Which key experiences helped you to build trust in your relationship?;Fidelity;2
+49;Waltz in Wonder;What surprised or continues to surprise you about your relationship?;Fidelity;2
+50;Warm Fuzzies;Recall an incident over the past week when you felt listened to or loved by your partner. How did you respond?;Fidelity;2
+51;Class Divide;How is your relationship with your partner affected by your education, salary/status, social circles, family background?;Fidelity;3
+52;Crisis Managemnet;How might you respond if your partner became: (1) unemployed or bankrupt, (2) chronically or terminally ill, (3) physically or mentally disabled, (4) struck with a mental illness?;Fidelity;3
+53;Echo Location;Are you with someone who's 'above you', 'below you', or 'an equal'? What makes you think or feel this way?;Fidelity;3
+54;Fair Play;What does it mean to you to fight fairly as a couple? Share some examples.;Fidelity;3
+55;First Things First;How have your priorities changed since you've gotten attached?;Fidelity;3
+56;In Good Faith;How is your relationship shaped by you and your partner's religious beliefs?;Fidelity;3
+57;On the Horizon;Where do you see your relationship heading in the next 4 weeks, 9 months, 3 years?;Fidelity;3
+58;Space Between;How do you balance transparency and privacy in your relationship?;Fidelity;3
+59;Terms of Reference;What do you believe: (1) being together means..., (2) love is ..., (3) being understood and accepted is like ...;Fidelity;3
+60;Virtuous Cycle;What aspects of your relationship do you want to improve with your partner? How do you want to work towards it?;Fidelity;3

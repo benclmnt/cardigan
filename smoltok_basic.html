@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoltok Basic</title>
+    <script src="./sql-wasm.js"></script>
+    <script>
+        let limit = 20;
+
+        function setLimit(e) {
+            limit = e.target.value
+        }
+    </script>
+    <script type="module">
+        const sqlPromise = initSqlJs({
+            locateFile: file => `./${file}`
+        });
+        const dataPromise = fetch("data.db").then(res => res.arrayBuffer());
+        const [SQL, buf] = await Promise.all([sqlPromise, dataPromise])
+        const db = new SQL.Database(new Uint8Array(buf));
+
+        function getLevel(level) {
+            let stmt = db.prepare("SELECT * FROM smoltok_basic WHERE depth = $level ORDER BY RANDOM() LIMIT $limit");
+            stmt.bind({
+                $level: level,
+                $limit: limit
+            });
+            return stmt
+        }
+
+        let stmts = []
+        let status = ["done", "open", "open", "open"]
+
+        export function getNext(level) {
+            console.log(level, document.querySelector("#level" + level))
+            let el = document.querySelector("#level" + level).querySelector(".content")
+            if (status[level] == "close") {
+                status[level] = "open"
+                let row = stmts[level].getAsObject();
+                let title = row['title']
+                el.innerHTML = `<h2>${title}</h2><div>Question: ${row['question']}</div><div>Category: ${row['category']}</div>`;
+
+                let history = document.querySelector("#history")
+                history.innerHTML = `<p>${row['question']} (${row['category']})</p>` + history.innerHTML;
+            } else if (status[level] == "open") {
+                status[level] = "close"
+                if (!stmts[level].step()) {
+                    status[level] = "done"
+                }
+                let row = stmts[level].getAsObject();
+                el.innerHTML = `<h2>***</h2><div>Question: ??</div><div>Category: ${row['category']}</div>`;
+            }
+
+            if (status[level] == "done") {
+                el.innerHTML = `No more questions...`;
+                return
+            }
+        }
+
+        function destroyControls() {
+            stmts = ["", getLevel(1), getLevel(2), getLevel(3)]
+            getNext(1)
+            getNext(2)
+            getNext(3)
+
+            let i = 1
+            for (let d of document.querySelectorAll(".card")) {
+                let j = i
+                d.onclick = function () { getNext(j) }
+                i += 1
+            }
+
+            document.querySelector("#controls").innerHTML = ""
+        }
+
+        window.destroyControls = destroyControls
+        window.getNext = getNext
+    </script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .card {
+            padding: 20px;
+            width: 33%;
+            min-height: 200px;
+            margin: 20px;
+            border: 1px solid pink;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        }
+
+        @media screen and (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body style="padding: 20px;">
+    <h1 style="margin: auto;">Smol Tok: Basic</h1>
+    <p>Relationships are built on meaningful conversations but these are harder to come by in this age of digital
+        excess. It's time to get back to basics by asking powerful questions and exploring the meaning in our lives.</p>
+    <p>Instructions: Sit in a circle. In each turn, click on any cards to reveal the question. Answer it and click again
+        on the question to close it. If you would like to start again, refresh the page.</p>
+    <div id="controls">
+        <h3>Controls: Please set before playing</h3>
+        <div>
+            <label for="limit">Limit for each level. Recommended: 4-6</label>
+            <input type="number" id="limit" name="limit" min="0" max="2" value="0" onchange="setLimit(event)">
+        </div>
+        <button onclick="destroyControls()">Done</button>
+    </div>
+    <div class="container">
+        <div id="level1" class="card">
+            <h3>1</h3>
+            <div class="content"></div>
+        </div>
+        <div id="level2" class="card">
+            <h3>2</h3>
+            <div class="content"></div>
+        </div>
+        <div id="level3" class="card">
+            <h3>3</h3>
+            <div class="content"></div>
+        </div>
+    </div>
+    <h3>History</h3>
+    <div id="history"></div>
+
+</body>
+
+</html>

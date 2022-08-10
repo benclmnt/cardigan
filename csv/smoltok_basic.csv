@@ -1,0 +1,61 @@
+index;title;question;category;depth
+1;Alias;What nicknames do you go by? Which is your favourite?;Personality;1
+2;Big Break;What would you do if you won 10 million dollars tomorrow?;Personality;1
+3;Calculated Risk;What's the craziest thing you've ever done?;Personality;1
+4;Division of Labour;What do you love/hate about your work?;Personality;1
+5;Jet Set;Name a favourite place you've been to. What makes it special?;Personality;1
+6;Make Haste;What are you procrastinating now?;Personality;1
+7;Out Damned Spot;Which are your most and least favourite chores?;Personality;1
+8;Push Your Buttons;What stresses or de-stresses you?;Personality;1
+9;Spice of Life;What do you most enjoy eating in the whole wide world?;Personality;1
+10;Sweet and Savoury;How well can you cook or bake?;Personality;1
+11;Alarum;If your house caught fire and you only had time to save one item, what would you save?;Personality;2
+12;Archetypes;Which literary character do you most identify with?;Personality;2
+13;Course Correction;If you only had one more year to live, what would you change about your life now?;Personality;2
+14;Inner Fibre;What personal trait do you like/dislike most about yourself?;Personality;2
+15;Keep in Mind;What is one treasured memory that has faded over time? What details do you wish you could still recall?;Personality;2
+16;Moral of the Story;Describe one important life lesson you've learnt from the books you've read;Personality;2
+17;Mystery Guest;If you could have an hour long conversation with anyone at all, who would you talk to?;Personality;2
+18;Page Turner;What's the most inspiring book you've ever read?;Personality;2
+19;Pro Bono;What are you willing to devote your time and energy to without getting paid?;Personality;2
+20;Rallying Cry;What motto do you live by?;Personality;2
+21;Bucket List;What's the top 3 on your bucket list?;Personality;3
+22;Cloudburst;When did you last cry?;Personality;3
+23;Epitaph;How do you want to be remembered?;Personality;3
+24;Faux Pas;Describe the most embarassing moment of your life;Personality;3
+25;Hindsight;If you could turn back time, what's the one thing you would have done differently?;Personality;3
+26;Know No Fear;If you knew you could not fail, what would you go accomplish?;Personality;3
+27;Mutant Power;If you could wake up tomorrow morning with a special ability, what would you have?;Personality;3
+28;Not All that Glitters is Gold;What is your most valued possession? How did you come to have it?;Personality;3
+29;Sing to the Mountains;Describe the happiest moment of your life.;Personality;3
+30;Sink Beneath the Waves;Describe the saddest moment of your life.;Personality;3
+31;Heirloom;What's the most important lesson you've learnt from your parents?;Community;1
+32;Kin;How many siblings do you have? Who are you close to?;Community;1
+33;Kith;What do you value most in a friendship?;Community;1
+34;Pet Peeves;Who/what irritates you?;Community;1
+35;Ties that Bind;What activity do you most enjoy doing together with your family?;Community;1
+36;Age of Innocence;What do you miss most from your childhood?;Community;2
+37;Homeland;Were you born in this country? What do you feel about living here?;Community;2
+38;Influencer;Which of these symbols best describe you: -, +, x, /, = ?;Community;2
+39;Larger than Life;Who is your hero? How does he/she inspire you?;Community;2
+40;Thick as Thieves;Name one of your closest friends. How is he/she special to you?;Community;2
+41;Catalyst;Share about an area of work of life that you want to impact;Community;3
+42;Last Supper;For your last meal, what would you eat and who would you eat with?;Community;3
+43;Late Bloomer;How would you react if a close friend expressed his/her romantic feelings for you?;Community;3
+44;Sojourn;Where is your true home?;Community;3
+45;Tete-a-Tete;When did you last have a truly meaningful conversation with someone? What did you talk about?;Community;3
+46;Algorithm;Would you sign up with a dating agency?;Intimacy;1
+47;Cheek to Cheek;Describe the perfect date;Intimacy;1
+48;Crash and Burn;Describe the worst date you've ever been on;Intimacy;1
+49;Little Tykes;What are your top 3 children's names?;Intimacy;1
+50;Red Herring;Describe an experience when you were match-made or went on a blind date.;Intimacy;1
+51;Catch and Release;How do you know when to let go of someone?;Intimacy;2
+52;Lull;How long has it been since your last serious relationship?;Intimacy;2
+53;Mini-Me;How important is having children to you?;Intimacy;2
+54;Tingling in Your Toes;How do you know that you truly love your partner?;Intimacy;2
+55;To Have and To Hold;How important is marriage to you?;Intimacy;2
+56;All or Nothing At All;What risks have you taken  for someone you love?;Intimacy;3
+57;Heart's Desire;Share a love story that moves you.;Intimacy;3
+58;Non Negotiables;What is a deal-maker or deal-breaker in search for a partner?;Intimacy;3
+59;Piqued;Is there someone at this table you would like to know better? What intrigues or interests you about this person?;Intimacy;3
+60;Solace in Solitude;When did you last experience loneliness? What made you feel this way?;Intimacy;3
