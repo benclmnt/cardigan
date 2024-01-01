@@ -35,7 +35,6 @@
         let status = ["done", "open", "open", "open"]
 
         export function getNext(level) {
-            console.log(level, document.querySelector("#level" + level))
             let el = document.querySelector("#level" + level).querySelector(".content")
             if (status[level] == "close") {
                 status[level] = "open"

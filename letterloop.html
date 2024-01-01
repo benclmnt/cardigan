@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letterloop</title>
+    <script src="./sql-wasm.js"></script>
+    <script type="module">
+        let categories = {
+            "all": true,
+            "career": false,
+            "worldview": false,
+            "reflection": false,
+            "random": false,
+            "relationship": false,
+            "checkin": false,
+            "icebreaker": false
+        };
+
+        const sqlPromise = initSqlJs({
+            locateFile: file => `./${file}`
+        });
+        const dataPromise = fetch("data.db").then(res => res.arrayBuffer());
+        const [SQL, buf] = await Promise.all([sqlPromise, dataPromise])
+        const db = new SQL.Database(new Uint8Array(buf));
+
+        function prepareStmt() {
+            let tags = []
+            for (const [k, v] of Object.entries(categories)) {
+                if (k == "all" && v) {
+                    tags = [`"career"`, `"worldview"`, `"reflection"`, `"random"`, `"relationship"`, `"checkin"`, `"icebreaker"`]
+                    break
+                }
+                if (v) {
+                    tags.push(`"${k}"`)
+                }
+            }
+            let stmt = db.prepare(`SELECT question, tags FROM letterloop WHERE tags IN ( ${tags} ) ORDER BY RANDOM()`);
+            return stmt
+        }
+
+        let stmt;
+
+        function getNext() {
+            let el = document.querySelector("#card").querySelector(".content")
+            if (stmt.step()) {
+                let row = stmt.getAsObject();
+                el.innerHTML = `<h2>${row['question']}</h2>`;
+                let history = document.querySelector("#history")
+                history.innerHTML = `<p>${row['question']} (${row['tags']})</p>` + history.innerHTML;
+            } else {
+                el.innerHTML = `Sorry, we run out of questions!`
+            }
+        }
+
+        function updateTag(e, tag) {
+            categories[tag] = !categories[tag]
+            if (tag == 'all') {
+                document.querySelectorAll('.tag').forEach(el => el.classList.remove('active'))
+            } else {
+                document.querySelector('[data-tag="all"]').classList.remove('active')
+                categories['all'] = false
+            }
+            e.classList.toggle('active')
+            stmt = prepareStmt()
+        }
+        stmt = prepareStmt()
+        getNext() // seed first question
+        window.getNext = getNext
+        document.getElementById('tag-container').addEventListener('click', e => {
+            updateTag(e.target, e.target.dataset.tag)
+        })
+    </script>
+    <style>
+        .body {
+            padding: 20px;
+            max-width: 700px;
+            margin: auto;
+            font-size: 1.25rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        .button,
+        .tag {
+            padding: 0.75rem;
+            font: inherit;
+            background-color: rgb(247, 222, 226);
+            border-radius: 0.75rem;
+            margin: 1px;
+            cursor: pointer;
+        }
+
+        .button,
+        .tag.active {
+            background-color: lightpink;
+        }
+
+        .card {
+            padding: 20px;
+            width: 80%;
+            min-height: 100px;
+            margin: 20px;
+            border: 1px solid lightpink;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        }
+
+        @media screen and (max-width: 768px) {
+            .card {
+                width: 80%;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body class="body">
+    <h1 style="margin: auto;">Intentional Questions</h1>
+    <p>Do you find yourselves stuck with boring smalltalk questions? Do you find it hard to start an interesting
+        conversation. Fret no more! Choose the categories you'd like to get a random question from and be the most
+        interesting person in the room</p>
+    <div id="tag-container" style="display: flex; flex-wrap: wrap;">
+        <div class="tag active" data-tag="all">All</div>
+        <div class="tag" data-tag='career'>Career</div>
+        <div class="tag" data-tag='worldview'>Worldview</div>
+        <div class="tag" data-tag='reflection'>Self-Reflection</div>
+        <div class="tag" data-tag='random'>Random</div>
+        <div class="tag" data-tag='relationship'>Relationship</div>
+        <div class="tag" data-tag='checkin'>Check In</div>
+        <div class="tag" data-tag='icebreaker'>Icebreaker</div>
+    </div>
+    <div class=" container">
+        <div id="card" class="card">
+            <h3 class="title"></h3>
+            <div class="content"></div>
+        </div>
+    </div>
+    <button class="button" onclick="getNext()">New Question</button>
+    <h3>History</h3>
+    <div id="history"></div>
+
+</body>
+
+</html>

@@ -35,7 +35,6 @@
         let status = ["done", "open", "open", "open"]
 
         export function getNext(level) {
-            console.log(level, document.querySelector("#level" + level))
             let el = document.querySelector("#level" + level).querySelector(".content")
             if (status[level] == "close") {
                 status[level] = "open"
@@ -90,7 +89,7 @@
             padding: 20px;
             width: 33%;
             min-height: 200px;
-            margin: 20px;
+            margin: 10px;
             border: 1px solid pink;
             border-radius: 5px;
             box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -108,7 +107,7 @@
     </style>
 </head>
 
-<body style="padding: 20px;">
+<body style="padding: 20px; max-width: 700px; margin: auto; font-size: 1.25rem;">
     <h1 style="margin: auto;">Pillow Tok</h1>
     <p>Love. Sometimes we say too much. Sometimes we say too little. Other times, we're too afraid to say what really
         matters. What remains constant in all these situations is our desire to love and be loved in return</p>
